@@ -19,6 +19,13 @@ This repository organizes Generative Recommendation (GenRec) research not by lis
 | **Multimodal Unified** | Jointly modeling text, image, and ID features. | **RPG** (KDD'25), **VGA** (ACL'24) |
 | **Continuous Interaction** | Directly using raw interaction vectors (for Diffusion models). | **DiffRec** (SIGIR'23), **DDRM** (SIGIR'24) |
 
+| Strategy Family | Sub-Category | Paper's Tokenization & Details |
+| :--- | :--- | :--- |
+| **Semantic Embedding** | Utilizing PLMs (BERT/ViT) to extract textual or visual features. | **TIGER** (NeurIPS'23), **LETTER** (arXiv'24) |
+| **Collaborative / Graph** | **Dual Codes** | **EAGER** (arXiv'23) <br> [EAGER双流结构图] <br> *同时接受行为及语义信息，两部分分别通过不同的预训练来生成embedding representation，并分别将其传给后面的tokenizer处理。*|
+| **Multimodal Unified** | Jointly modeling text, image, and ID features. | **RPG** (KDD'25), **VGA** (ACL'24) |
+| **Continuous Interaction** | Directly using raw interaction vectors (for Diffusion models). | **DiffRec** (SIGIR'23), **DDRM** (SIGIR'24) |
+
 ---
 
 ## 2. Tokenization Layer: Discretization for Generation
@@ -50,6 +57,14 @@ This repository organizes Generative Recommendation (GenRec) research not by lis
 | **Non-Autoregressive (NAR)** | Parallel generation; significantly faster inference but harder to train. | **RPG** (KDD'25) |
 | **Diffusion (Denoising)** | Iterative noise removal; generates continuous vectors, not tokens. | **DiffRec**, **LDiffRec** |
 
+| Architecture Family | Sub-Category | Paper's Backbone Focus & Details |
+| :--- | :--- | :--- |
+| **Encoder-Decoder** | **Two-Stream Generation Architecture**| **EAGER** (arXiv'23) <br> [双流架构图] <br> *使用一个共享编码器和两个解码器，两个解码器分别对应一种序列信息，实现了同时基于两种序列进行预测*  |
+| **Decoder-Only (LLM/GPT)** | Strong reasoning & zero-shot ability; standard for LLM-based approaches. | **OneRec**, **GPT4Rec**, **SGL** |
+| **Non-Autoregressive (NAR)** | Parallel generation; significantly faster inference but harder to train. | **RPG** (KDD'25) |
+| **Diffusion (Denoising)** | Iterative noise removal; generates continuous vectors, not tokens. | **DiffRec**, **LDiffRec** |
+
+
 ---
 
 ## 4. Training Paradigm
@@ -58,6 +73,13 @@ This repository organizes Generative Recommendation (GenRec) research not by lis
 | Paradigm | Description | Representative Papers |
 | :--- | :--- | :--- |
 | **Two-Stage (Quantize $\to$ Train)** | Step 1: Train Codebook (VQ-VAE). Step 2: Train Generator (Seq2Seq). | **TIGER**, **VQ-Rec** |
+| **Joint / End-to-End** | Optimizing quantization loss and generation loss simultaneously. | **LC-Rec**, **GeneRec** |
+| **Pre-train & Fine-tune** | Standard LLM paradigm: Language Modeling pre-training $\to$ Rec fine-tuning. | **GPT4Rec**, **P5** |
+| **Alignment (RLHF/DPO)** | Aligning generation with ranking metrics or user feedback (Reinforcement Learning). | **OneRec** (Preference Alignment), **TallRec** |
+
+| Paradigm Family | Sub-Category | Paper's Paradigm Focus & Details |
+| :--- | :--- | :--- |
+| **Two-Stage (Quantize $\to$ Train)** | **Multi-Task Enhancement** | **EAGER** (arXiv'23) <br> [双流架构图] <br> *除基础的两阶段范式外，新增Global Contractive* |
 | **Joint / End-to-End** | Optimizing quantization loss and generation loss simultaneously. | **LC-Rec**, **GeneRec** |
 | **Pre-train & Fine-tune** | Standard LLM paradigm: Language Modeling pre-training $\to$ Rec fine-tuning. | **GPT4Rec**, **P5** |
 | **Alignment (RLHF/DPO)** | Aligning generation with ranking metrics or user feedback (Reinforcement Learning). | **OneRec** (Preference Alignment), **TallRec** |
