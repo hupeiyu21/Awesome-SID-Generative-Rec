@@ -45,7 +45,6 @@ This repository organizes Generative Recommendation (GenRec) research not by lis
 | | **R-KMeans** | OneRec  |
 | **Product Quantization (PQ)** | **OPQ** | **RPG** (KDD'25) <br> [RPG并行生成/OPQ示意图] <br> *贡献: 采用了类似 OPQ 的结构来构建 Long Semantic ID，以支持非自回归的并行生成，解决了短 ID 语义容量不足的问题。* |
 | **Clustering-based** | **Hierarchical K-Means** | **GenRet** (NeurIPS'22) <br> [GenRet树结构ID生成图] <br> *贡献: 将 Item ID 编码成树路径序列，利用层次 K-Means 聚类构建树结构，将生成问题转化为路径生成。* |
-| | **Hierarchical K-Means** | **SEER** (RecSys'23) <br> [SEER ID解释性结构图] <br> *贡献: 采用层次化的离散 ID 结构，利用聚类结果来提供推荐的可解释性，并指导生成过程。* |
 | | **Hierarchical K-Means** | **ColaRec** <br> <br> *贡献: 使用层次化K-means对CF信号构建对应的GID* |
 | **Hybrid / Textual** | **Raw Text Tokens** | **GPT4Rec** (SIGIR eCom'23) <br> [GPT4Rec Query/Text生成流程图] <br> *贡献: 将用户历史转化为文本 Query，然后生成 Item Title 等描述性文本，完全绕过了 Item ID 语义量化步骤。* |
 | **Learnable / E2E** | **Joint Optimization** | **LC-Rec** (WWW'24) <br> [LC-Rec联合优化框图] <br> *贡献: 提出了可学习的代码本，让量化器在推荐任务中同步优化，以适配生成式骨干。* |
