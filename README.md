@@ -126,7 +126,7 @@ This repository organizes Generative Recommendation (GenRec) research not by lis
 | **Constrained Beam Search** | Using a Prefix Tree (Trie) to force the generator to output valid Item IDs. | **TIGER**, **GenRet**, **LETTER** |
 | **Standard Beam Search** | Generating top-K sequences based on probability (may hallucinate invalid IDs). | **GPT4Rec** |
 | **Parallel / Graph Decoding** | Non-autoregressive decoding guided by graph constraints. | **RPG** |
-| **Re-ranking / Scoring** | Using the generator to score candidates retrieved by another model. | **LLaRA**, **TALLRec** |
+| **Re-ranking / Scoring** | Using the generator to score candidates retrieved by another model. | **MQL4GRec**, **ContRec** |
 
 | Family | Sub-Category | Details |
 | :--- | :--- | :--- |
